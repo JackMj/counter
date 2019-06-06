@@ -1,11 +1,26 @@
-version: '3'
-services:
-  web:
-    build: 
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    # volumes:
-    #   - /node_modules
-    #   - .:/app
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: client
+      image: muzij/frontend_web
+      ports:
+        - containerPort: 3000
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050
+      targetPort: 3000
+      nodePort: 31515
+  selector:
+    component: web
+
