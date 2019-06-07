@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+!obj/Docker/publish/*
+!obj/Docker/empty/
+!publish/myapp
+
 # testing
 /coverage
 

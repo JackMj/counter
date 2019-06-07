@@ -1,11 +1,9 @@
-FROM node
-ENV NPM_CONFIG_PROGRESS false
-ENV NPM_CONFIG_SPIN false
+FROM node:alpine
 
 WORKDIR './app'
 
 COPY package.json .
-RUN npm install
+RUN npm install npm@latest
 COPY . .
 
-CMD [ "npm","run","start" ]
+CMD ["npm", "start"]
