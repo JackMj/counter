@@ -3,18 +3,18 @@ kind: Pod
 metadata:
   name: client-pod
   labels:
-    component: web
+    component: svcs-acct-dply
 spec:
   containers:
     - name: client
       image: muzij/frontend_web
       ports:
         - containerPort: 3000
-
+===
 apiVersion: v1
 kind: Service
 metadata:
-  name: client-node-port
+  name: svcs-acct-dply
 spec:
   type: NodePort
   ports:
@@ -22,5 +22,5 @@ spec:
       targetPort: 3000
       nodePort: 31515
   selector:
-    component: web
+    component: svcs-acct-dply
 
