@@ -3,7 +3,7 @@ FROM node:alpine
 WORKDIR './app'
 
 COPY package.json .
-RUN npm install npm@latest
+RUN npm install 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["npm","start"]
