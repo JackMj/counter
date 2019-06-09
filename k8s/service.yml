@@ -10,3 +10,19 @@ spec:
       nodePort: 31515
   selector:
     component: svcs-acct-dply
+
+===
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  namespace: default
+  labels:
+    component: svcs-acct-dply
+spec:
+  containers:
+    - name: client
+      image: muzij/counter
+      ports:
+        - containerPort: 3000
