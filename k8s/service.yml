@@ -6,8 +6,8 @@ spec:
   type: NodePort
   ports:
     - port: 3050
-      targetPort: 3000
-      nodePort: 31515
+      targetPort: 3001
+      nodePort: 31510
   selector:
     component: svcs-transaction-service
 
