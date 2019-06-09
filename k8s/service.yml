@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svcs-acct-dply
+  name: svcs-transaction-service
 spec:
   type: NodePort
   ports:
@@ -9,20 +9,20 @@ spec:
       targetPort: 3000
       nodePort: 31515
   selector:
-    component: svcs-acct-dply
+    component: svcs-transaction-service
 
----
+# ---
   
-apiVersion: v1
-kind: Pod
-metadata:
-  name: client-pod
-  namespace: default
-  labels:
-    component: svcs-acct-dply
-spec:
-  containers:
-    - name: client
-      image: muzij/counter
-      ports:
-        - containerPort: 3000
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: client-pod
+#   namespace: default
+#   labels:
+#     component: svcs-transaction-service
+# spec:
+#   containers:
+#     - name: client
+#       image: muzij/counter
+#       ports:
+#         - containerPort: 3000
