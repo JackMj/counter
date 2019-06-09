@@ -11,8 +11,8 @@ spec:
   selector:
     component: svcs-acct-dply
 
-===
-
+---
+  
 apiVersion: v1
 kind: Pod
 metadata:
