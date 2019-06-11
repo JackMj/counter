@@ -1,28 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: count
+  name: counter-pod
 spec:
   type: NodePort
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 31510
   selector:
-    component: count
+    component: counter-pod
 
 ---
   
 apiVersion: v1
 kind: Pod
 metadata:
-  name: count
+  name: count-pod
   namespace: default
   labels:
-    component: count
+    component: counter-pod
 spec:
   containers:
-    - name: muzij/counter
+    - name: counter-pod
       image: muzij/counter
       ports:
         - containerPort: 3000
