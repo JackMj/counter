@@ -22,7 +22,7 @@ metadata:
     component: count
 spec:
   containers:
-    - name: client
+    - name: counts_node-app 
       image: muzij/counter
       ports:
         - containerPort: 3000
